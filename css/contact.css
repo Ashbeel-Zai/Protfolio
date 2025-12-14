@@ -1,0 +1,418 @@
+/* Base Styles & Variables */
+:root {
+    --primary: #00ff95;
+    --secondary: #00a8ff;
+    --dark: #0a0a0a;
+    --darker: #050505;
+    --light: #ffffff;
+    --gray: #2a2a2a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+}
+
+@import url('https:/fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap');
+
+body {
+    background: var(--dark);
+    color: var(--light);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Animation Container */
+.animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a0a1a 0%, #0a0a0a 100%);
+}
+
+.gradient-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 168, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 255, 149, 0.1) 0%, transparent 50%);
+    animation: gradientPulse 15s ease infinite;
+}
+
+/* Contact Container */
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Styles */
+.contact-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.glitch {
+    font-size: 4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+                0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    animation: glitch 500ms infinite;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* Contact Content */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    background: rgba(10, 10, 15, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Contact Info */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 255, 149, 0.1);
+}
+
+.info-item .icon {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    min-width: 40px;
+    text-align: center;
+}
+
+.info-item h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.info-item p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+}
+
+/* Form Styles */
+.contact-form {
+    position: relative;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 2rem;
+    z-index: 1;
+}
+
+.form-group input,
+.form-group textarea {
+    font-size: 1rem;
+    padding: 10px 0;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.form-group textarea {
+    resize: none;
+    min-height: 100px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+}
+
+.form-group label {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 0;
+    top: 10px;
+    transition: 0.3s ease all;
+}
+
+/* Active state */
+.form-group input:focus ~ label,
+.form-group input:valid ~ label,
+.form-group textarea:focus ~ label,
+.form-group textarea:valid ~ label {
+    top: -20px;
+    font-size: 0.8rem;
+    color: var(--primary);
+}
+
+/* Bottom bars */
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.bar:before,
+.bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    position: absolute;
+    background: var(--primary);
+    transition: 0.3s ease all;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+/* Active state */
+input:focus ~ .bar:before,
+input:focus ~ .bar:after,
+textarea:focus ~ .bar:before,
+textarea:focus ~ .bar:after {
+    width: 50%;
+}
+
+/* Highlight */
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Active state */
+input:focus ~ .highlight,
+textarea:focus ~ .highlight {
+    animation: inputHighlighter 0.3s ease;
+}
+
+/* Button */
+.btn-pulse {
+    position: relative;
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+    box-shadow: 0 5px 15px rgba(0, 255, 149, 0.3);
+}
+
+.btn-pulse:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 255, 149, 0.4);
+}
+
+.btn-pulse:active {
+    transform: translateY(1px);
+}
+
+.btn-pulse span {
+    position: relative;
+    z-index: 2;
+}
+
+.wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    transform: scale(0);
+    opacity: 1;
+    animation: wave 1.5s infinite;
+    z-index: 1;
+}
+
+/* Animations */
+@keyframes wave {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes gradientPulse {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                    -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                    -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    14% {
+        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                    -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                    -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    15% {
+        text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                    0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+                    -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    49% {
+        text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                    0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+                    -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    50% {
+        text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                    0.05em 0 0 rgba(0, 255, 0, 0.75),
+                    0 -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    99% {
+        text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                    0.05em 0 0 rgba(0, 255, 0, 0.75),
+                    0 -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    100% {
+        text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+                    -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+                    -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+    }
+    
+    .glitch {
+        font-size: 3rem;
+    }
+    
+    .contact-header {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-container {
+        padding: 1rem;
+    }
+    
+    .glitch {
+        font-size: 2.2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .contact-content {
+        padding: 1.5rem;
+    }
+    
+    .btn-pulse {
+        width: 100%;
+    }
+}

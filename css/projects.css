@@ -1,0 +1,612 @@
+/* Projects Page Styles */
+:root {
+    --primary-color: #00ff9d;
+    --secondary-color: #00a1ff;
+    --dark-color: #0a192f;
+    --darker-color: #020c1b;
+    --light-color: #ccd6f6;
+    --accent-color: #ff2d75;
+    --font-primary: 'Orbitron', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skills-section {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a192f 0%, #020c1b 100%);
+}
+
+.skills-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    position: relative;
+    color: var(--light-color);
+}
+
+.section-title span {
+    color: var(--primary-color);
+    position: relative;
+}
+
+/* Solar System Styles */
+.solar-system {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 60vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    padding: 20px 0;
+    overflow: visible;
+}
+
+.sun {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #ff9d00, #ff2d75);
+    border-radius: 50%;
+    box-shadow: 0 0 50px #ff9d00, 0 0 100px #ff2d75;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--darker-color);
+    font-weight: bold;
+    z-index: 10;
+    animation: pulse 3s infinite alternate;
+}
+
+.orbit {
+    position: absolute;
+    border: 2px dashed rgba(0, 255, 157, 0.2);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.orbit-1 {
+    width: 250px;
+    height: 250px;
+    animation: rotateOrbit 20s linear infinite;
+}
+
+.orbit-2 {
+    width: 400px;
+    height: 400px;
+    animation: rotateOrbit 30s linear infinite reverse;
+}
+
+.orbit-3 {
+    width: 550px;
+    height: 550px;
+    animation: rotateOrbit 40s linear infinite;
+}
+
+.orbit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    border: 1px solid rgba(0, 255, 157, 0.1);
+    border-radius: 50%;
+}
+
+.planet {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--darker-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    z-index: 5;
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+}
+
+/* Position planets in their orbits */
+.orbit-1 .planet:nth-child(1) { transform: translateY(-125px); }
+.orbit-1 .planet:nth-child(2) { transform: rotate(120deg) translateY(-125px) rotate(-120deg); }
+.orbit-1 .planet:nth-child(3) { transform: rotate(240deg) translateY(-125px) rotate(-240deg); }
+
+.orbit-2 .planet:nth-child(1) { transform: translateY(-200px); }
+.orbit-2 .planet:nth-child(2) { transform: rotate(90deg) translateY(-200px) rotate(-90deg); }
+.orbit-2 .planet:nth-child(3) { transform: rotate(180deg) translateY(-200px) rotate(-180deg); }
+.orbit-2 .planet:nth-child(4) { transform: rotate(270deg) translateY(-200px) rotate(-270deg); }
+
+.orbit-3 .planet:nth-child(1) { transform: translateY(-275px); }
+.orbit-3 .planet:nth-child(2) { transform: rotate(72deg) translateY(-275px) rotate(-72deg); }
+.orbit-3 .planet:nth-child(3) { transform: rotate(144deg) translateY(-275px) rotate(-144deg); }
+.orbit-3 .planet:nth-child(4) { transform: rotate(216deg) translateY(-275px) rotate(-216deg); }
+.orbit-3 .planet:nth-child(5) { transform: rotate(288deg) translateY(-275px) rotate(-288deg); }
+
+.planet {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--darker-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    transform: rotate(calc(var(--i) * 20deg));
+}
+
+.planet:hover {
+    transform: scale(1.2) rotate(calc(var(--i) * 20deg));
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
+/* Skill Details Section */
+.skill-details {
+    margin: 60px auto 0;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.skill-details h3 {
+    color: var(--light-color);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.skill-info {
+    background: rgba(10, 25, 47, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 157, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 20px;
+    transition: var(--transition);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.skill-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.skill-name {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-family: var(--font-primary);
+    transition: var(--transition);
+}
+
+.skill-description {
+    color: var(--light-color);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.skill-tools {
+    background: rgba(0, 255, 157, 0.1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--light-color);
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+.skill-tools strong {
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+/* Mobile Skill List */
+.mobile-skill-list {
+    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.mobile-skill-item {
+    background: rgba(0, 255, 157, 0.1);
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    border-radius: 10px;
+    padding: 15px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+}
+
+.mobile-skill-item i {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.mobile-skill-item span {
+    font-size: 0.9rem;
+    color: var(--light-color);
+    transition: var(--transition);
+}
+
+.mobile-skill-item:hover, 
+.mobile-skill-item.active {
+    background: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 157, 0.2);
+}
+
+.mobile-skill-item:hover i,
+.mobile-skill-item.active i,
+.mobile-skill-item:hover span,
+.mobile-skill-item.active span {
+    color: var(--darker-color);
+}
+
+.skill-info {
+    background: rgba(10, 25, 47, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid rgba(0, 255, 157, 0.2);
+}
+
+.skill-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.skill-name {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.skill-description {
+    color: var(--light-color);
+    line-height: 1.6;
+}
+
+/* Projects Section */
+.projects {
+    padding: 80px 0;
+    background-color: var(--darker-color);
+    position: relative;
+}
+
+.projects .container {
+    position: relative;
+    z-index: 2;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.project-card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 300px;
+    position: relative;
+    background: rgba(10, 25, 47, 0.8);
+    border: 1px solid rgba(0, 255, 157, 0.1);
+    box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px -10px rgba(0, 255, 157, 0.2);
+    border-color: rgba(0, 255, 157, 0.3);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 255, 157, 0.2);
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    padding: 30px 20px;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.project-card:hover .project-overlay {
+    transform: translateY(0);
+}
+
+.project-overlay h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.project-tags span {
+    background: rgba(0, 255, 157, 0.1);
+    color: var(--primary-color);
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+/* Animations */
+@keyframes rotateOrbit {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 50px #ff9d00, 0 0 100px #ff2d75;
+    }
+    100% {
+        box-shadow: 0 0 70px #ff9d00, 0 0 140px #ff2d75;
+    }
+}
+
+/* Responsive Design */
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .solar-system {
+        min-height: 500px;
+    }
+    
+    .orbit-3 { width: 500px; height: 500px; }
+    .orbit-2 { width: 350px; height: 350px; }
+    .orbit-1 { width: 200px; height: 200px; }
+    
+    /* Update planet positions */
+    .orbit-1 .planet:nth-child(1) { transform: translateY(-100px); }
+    .orbit-1 .planet:nth-child(2) { transform: rotate(120deg) translateY(-100px) rotate(-120deg); }
+    .orbit-1 .planet:nth-child(3) { transform: rotate(240deg) translateY(-100px) rotate(-240deg); }
+    
+    .orbit-2 .planet:nth-child(1) { transform: translateY(-175px); }
+    .orbit-2 .planet:nth-child(2) { transform: rotate(90deg) translateY(-175px) rotate(-90deg); }
+    .orbit-2 .planet:nth-child(3) { transform: rotate(180deg) translateY(-175px) rotate(-180deg); }
+    .orbit-2 .planet:nth-child(4) { transform: rotate(270deg) translateY(-175px) rotate(-270deg); }
+    
+    .orbit-3 .planet:nth-child(1) { transform: translateY(-250px); }
+    .orbit-3 .planet:nth-child(2) { transform: rotate(72deg) translateY(-250px) rotate(-72deg); }
+    .orbit-3 .planet:nth-child(3) { transform: rotate(144deg) translateY(-250px) rotate(-144deg); }
+    .orbit-3 .planet:nth-child(4) { transform: rotate(216deg) translateY(-250px) rotate(-216deg); }
+    .orbit-3 .planet:nth-child(5) { transform: rotate(288deg) translateY(-250px) rotate(-288deg); }
+}
+
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .skill-info {
+        padding: 25px 20px;
+    }
+    
+    .skill-name {
+        font-size: 1.6rem;
+    }
+    
+    .skill-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .solar-system {
+        display: none; /* Hide solar system on mobile */
+    }
+    
+    .mobile-skill-list {
+        display: grid;
+    }
+    
+    .skill-details {
+        margin-top: 30px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .project-card {
+        height: 250px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .skill-info {
+        min-height: auto;
+        padding: 20px 15px;
+    }
+    
+    .skill-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .skill-name {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+    
+    .skill-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    /* Update planet positions */
+    .orbit-1 .planet:nth-child(1) { transform: translateY(-75px); }
+    .orbit-1 .planet:nth-child(2) { transform: rotate(120deg) translateY(-75px) rotate(-120deg); }
+    .orbit-1 .planet:nth-child(3) { transform: rotate(240deg) translateY(-75px) rotate(-240deg); }
+    
+    .orbit-2 .planet:nth-child(1) { transform: translateY(-125px); }
+    .orbit-2 .planet:nth-child(2) { transform: rotate(90deg) translateY(-125px) rotate(-90deg); }
+    .orbit-2 .planet:nth-child(3) { transform: rotate(180deg) translateY(-125px) rotate(-180deg); }
+    .orbit-2 .planet:nth-child(4) { transform: rotate(270deg) translateY(-125px) rotate(-270deg); }
+    
+    .orbit-3 .planet:nth-child(1) { transform: translateY(-175px); }
+    .orbit-3 .planet:nth-child(2) { transform: rotate(72deg) translateY(-175px) rotate(-72deg); }
+    .orbit-3 .planet:nth-child(3) { transform: rotate(144deg) translateY(-175px) rotate(-144deg); }
+    .orbit-3 .planet:nth-child(4) { transform: rotate(216deg) translateY(-175px) rotate(-216deg); }
+    .orbit-3 .planet:nth-child(5) { transform: rotate(288deg) translateY(-175px) rotate(-288deg); }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .skills-section,
+    .projects {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .mobile-skill-list {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 12px;
+    }
+    
+    .mobile-skill-item {
+        padding: 12px 8px;
+        min-height: 90px;
+    }
+    
+    .mobile-skill-item i {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+    
+    .mobile-skill-item span {
+        font-size: 0.8rem;
+    }
+    
+    .project-card {
+        height: 220px;
+    }
+    
+    .skill-info {
+        padding: 15px 12px;
+    }
+    
+    .skill-icon {
+        font-size: 2rem;
+    }
+    
+    .skill-name {
+        font-size: 1.3rem;
+    }
+    
+    .skill-description {
+        font-size: 0.9rem;
+    }
+    
+    .skill-tools {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .mobile-skill-list {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .mobile-skill-list {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .mobile-skill-list {
+        display: none; /* Hide mobile skill list on desktop */
+    }
+    
+    .solar-system {
+        display: flex; /* Show solar system on desktop */
+    }
+}

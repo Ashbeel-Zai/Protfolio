@@ -1,0 +1,22 @@
+<nav class="navbar">
+    <div class="logo">
+        <span class="cyber-text">Ashbeel</span><span class="pro-text">Zai</span>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <ul class="nav-links">
+        <li><a href="/index.html" class="${document.location.pathname === '/index.html' ? 'active' : ''}">HOME</a></li>
+        <li><a href="/html/about.html" class="${document.location.pathname.endsWith('about.html') ? 'active' : ''}">ABOUT</a></li>
+        <li><a href="/html/projects.html" class="${document.location.pathname.endsWith('projects.html') ? 'active' : ''}">PROJECTS</a></li>
+        <li><a href="/html/contact.html" class="contact-btn ${document.location.pathname.endsWith('contact.html') ? 'active' : ''}">CONTACT</a></li>
+        <li><a href="/html/achievements.html" class="${document.location.pathname.endsWith('achievements.html') ? 'active' : ''}">ACHIEVEMENTS</a></li>
+    </ul>
+    <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</nav>

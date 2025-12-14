@@ -1,0 +1,150 @@
+/* Matrix-inspired transition effects */
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    transform: translateY(100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    pointer-events: none;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Courier New', monospace;
+}
+
+.matrix-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.15;
+    background: #000;
+    overflow: hidden;
+}
+
+.matrix-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(transparent 90%, rgba(0, 255, 0, 0.1) 90%);
+    background-size: 1em 1em;
+    opacity: 0.5;
+}
+
+.warning-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    max-width: 80%;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.warning-title {
+    color: #ff0000;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.warning-message {
+    color: #00ff00;
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
+    line-height: 1.6;
+    font-family: 'Courier New', monospace;
+}
+
+.transition-overlay.active {
+    transform: translateY(0);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto;
+}
+
+.transition-overlay.complete {
+    transform: translateY(-100%);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+
+/* Terminal-like loading text */
+.terminal-text {
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    position: relative;
+    padding: 20px;
+    margin-top: 2rem;
+    border: 1px solid #00ff00;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.7);
+    max-width: 80%;
+    text-align: left;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+.terminal-text .prompt {
+    color: #00ff95;
+    margin-right: 8px;
+}
+
+.terminal-text .page-name {
+    color: #00a8ff;
+    font-weight: bold;
+}
+
+.terminal-text::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    font-weight: bold;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 15px rgba(0, 255, 0, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(0, 255, 0, 0.5); }
+    100% { box-shadow: 0 0 15px rgba(0, 255, 0, 0.3); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+    
+/* Add a subtle matrix-like background effect */
+.transition-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(rgba(0, 255, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 0, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    pointer-events: none;
+}

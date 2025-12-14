@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Ashbeel Zai | Ethical Hacker</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/transitions.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: #fff;
+        }
+        
+        .punchline {
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+            padding: 2rem;
+        }
+        
+        .punchline h2 {
+            font-size: 2.5rem;
+            margin: 0;
+            background: linear-gradient(90deg, #00ff95, #00a8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .punchline h2:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, #00ff95, #00a8ff);
+            bottom: -10px;
+            left: 20%;
+            border-radius: 2px;
+        }
+        
+        .bio-card {
+            background: rgba(10, 10, 15, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            border: 1px solid rgba(0, 255, 149, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .bio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .bio {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #e0e0e0;
+        }
+        
+        .skills-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .skill-tile {
+            background: rgba(20, 20, 30, 0.8);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 255, 149, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-tile:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #00ff95, #00a8ff);
+        }
+        
+        .skill-tile:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: rgba(0, 255, 149, 0.3);
+        }
+        
+        .skill-tile h3 {
+            color: #00ff95;
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .skill-tile h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: #00a8ff;
+            bottom: -8px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .skill-tile ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .skill-tile li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+            color: #c0c0c0;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tile li:before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #00a8ff;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+        
+        .skill-tile li:hover {
+            color: #fff;
+            transform: translateX(5px);
+        }
+        
+        @media (max-width: 768px) {
+            .skills-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .punchline h2 {
+                font-size: 1.8rem;
+            }
+            
+            .bio-card {
+                padding: 1.5rem;
+            }
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-category {
+            background: rgba(20, 20, 30, 0.7);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 255, 149, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 149, 0.1);
+        }
+        
+        .skill-category h2 {
+            color: #00ff95;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #00a8ff;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .skill-category li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .skill-category li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #00a8ff;
+        }
+        
+        @media (max-width: 768px) {
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .punchline h2 {
+                font-size: 1.5rem;
+            }
+            
+            .bio {
+                font-size: 0.9rem;
+            }
+            
+            .skill-category h2 {
+                font-size: 1.3rem;
+            }
+            
+            .skill-category li {
+                font-size: 0.9rem;
+                padding-left: 1.2rem;
+            }
+            
+            .skill-tile {
+                padding: 1rem;
+                margin: 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .skill-tile h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .skill-tile p {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be loaded here by load-nav.js -->
+    <nav class="navbar">Loading navigation...</nav>
+
+    <div class="about-container">
+        <!-- Punchline -->
+        <div class="punchline" data-aos="fade-up">
+            <h2>Securing the Digital Frontier with Code & Ethics</h2>
+        </div>
+        
+        <!-- Bio Card -->
+        <div class="bio-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="bio">
+                <p>I'm Ashbeel Zai, an ethical hacker and cybersecurity specialist who believes in the power of practical knowledge and hands-on experience. I don't just follow security trends – I understand systems from the ground up, identifying vulnerabilities before they become threats.</p>
+                
+                <p>With a hacker's mindset and a builder's hands, I specialize in Linux environments, network security, and ethical penetration testing. My approach combines technical expertise with a deep commitment to ethical practices and continuous learning.</p>
+                
+                <p>When I'm not securing systems or participating in CTF challenges, I'm developing tools to automate security processes or contributing to open-source security projects.</p>
+            </div>
+        </div>
+        
+        <!-- Skills Showcase -->
+        <div class="skills-showcase">
+            <!-- SOC Analyst Skills -->
+            <div class="skill-tile" data-aos="fade-up" data-aos-delay="150">
+                <h3><i class="fas fa-shield-alt"></i> SOC Analyst</h3>
+                <ul>
+                    <li>Linux & Kali Linux</li>
+                    <li>Bash Command Line</li>
+                    <li>Network Security</li>
+                    <li>TCP/IP & Wireless</li>
+                    <li>Vulnerability Assessment</li>
+                    <li>Incident Response</li>
+                    <li>Security Tools</li>
+                </ul>
+            </div>
+            
+            <!-- Penetration Testing -->
+            <div class="skill-tile" data-aos="fade-up" data-aos-delay="200">
+                <h3><i class="fas fa-user-secret"></i> Penetration Testing</h3>
+                <ul>
+                    <li>Ethical Hacking</li>
+                    <li>CTF Challenges</li>
+                    <li>Wi-Fi Security</li>
+                    <li>Python Automation</li>
+                    <li>Vulnerability Research</li>
+                    <li>Security Assessments</li>
+                    <li>Exploit Development</li>
+                </ul>
+            </div>
+            
+            <!-- ISSO & Compliance -->
+            <div class="skill-tile" data-aos="fade-up" data-aos-delay="250">
+                <h3><i class="fas fa-clipboard-check"></i> Security Governance</h3>
+                <ul>
+                    <li>Security Policies</li>
+                    <li>Risk Assessment</li>
+                    <li>Compliance Standards</li>
+                    <li>System Hardening</li>
+                    <li>Security Documentation</li>
+                    <li>Ethical Practices</li>
+                    <li>Security Awareness</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+    <script src="/js/transitions.js"></script>
+    <script src="/js/load-nav.js"></script>
+</body>
+</html>
